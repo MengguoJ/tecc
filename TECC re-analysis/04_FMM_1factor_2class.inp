@@ -1,0 +1,30 @@
+TITLE:  One-factor ordinal mixture, 2 classes (selected model);
+
+DATA:
+   FILE IS final_data.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   USEVARIABLES = images music video book games camera create;
+   CATEGORICAL = images music video book games camera create;
+   MISSING = ALL (-999);
+   CLASSES = c(2);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 500 100;
+   STITERATIONS = 20;
+   ALGORITHM = INTEGRATION;
+   INTEGRATION = 30;
+   LRTSTARTS = 0 0 100 20;
+   LRTBOOTSTRAP = 200;
+
+MODEL:
+   %OVERALL%
+   f BY images* music video book games camera create;
+   f@1;
+
+OUTPUT:
+   TECH1 TECH11 TECH14;

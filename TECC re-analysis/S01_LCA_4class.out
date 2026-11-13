@@ -1,0 +1,997 @@
+Mplus VERSION 8.3 (Mac)
+MUTHEN & MUTHEN
+09/29/2026   2:33 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Supplement: ordinal LCA, 4 classes;
+
+  DATA:
+     FILE IS final_data.dat;
+
+  VARIABLE:
+     NAMES = images music video book games camera create
+        age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+     USEVARIABLES = images music video book games camera create;
+     CATEGORICAL = images music video book games camera create;
+     MISSING = ALL (-999);
+     CLASSES = c(4);
+
+  ANALYSIS:
+     TYPE = MIXTURE;
+     STARTS = 500 100;
+     STITERATIONS = 20;
+
+  MODEL:
+     %OVERALL%
+
+  OUTPUT:
+     TECH1 TECH11;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Supplement: ordinal LCA, 4 classes;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         225
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   IMAGES      MUSIC       VIDEO       BOOK        GAMES       CAMERA
+   CREATE
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-06
+    Relative loglikelihood change                        0.100D-06
+    Derivative                                           0.100D-05
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-05
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            20
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+
+Input data file(s)
+  final_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    IMAGES
+      Category 1    0.107           24.000
+      Category 2    0.369           83.000
+      Category 3    0.524          118.000
+    MUSIC
+      Category 1    0.138           31.000
+      Category 2    0.204           46.000
+      Category 3    0.658          148.000
+    VIDEO
+      Category 1    0.231           52.000
+      Category 2    0.360           81.000
+      Category 3    0.409           92.000
+    BOOK
+      Category 1    0.227           51.000
+      Category 2    0.471          106.000
+      Category 3    0.302           68.000
+    GAMES
+      Category 1    0.329           74.000
+      Category 2    0.342           77.000
+      Category 3    0.329           74.000
+    CAMERA
+      Category 1    0.298           67.000
+      Category 2    0.222           50.000
+      Category 3    0.480          108.000
+    CREATE
+      Category 1    0.542          122.000
+      Category 2    0.311           70.000
+      Category 3    0.147           33.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -1383.615  393232           152
+           -1383.615  414828           322
+           -1383.615  789985           67
+           -1383.615  544048           87
+           -1383.615  972873           157
+           -1383.615  268217           83
+           -1383.615  830570           369
+           -1383.615  21132            351
+           -1383.615  408713           450
+           -1383.615  760878           249
+           -1383.615  790452           303
+           -1383.615  40340            188
+           -1383.615  848163           47
+           -1383.615  436460           89
+           -1383.615  354624           448
+           -1383.615  898745           466
+           -1383.615  82357            339
+           -1383.615  636396           168
+           -1383.615  608460           244
+           -1383.615  950604           172
+           -1383.615  754100           56
+           -1383.615  529455           268
+           -1383.615  957392           79
+           -1383.615  12477            155
+           -1383.615  973369           202
+           -1383.615  405079           68
+           -1383.615  488125           368
+           -1383.615  802256           477
+           -1383.615  50887            389
+           -1383.615  609089           241
+           -1383.615  298275           418
+           -1383.615  499150           216
+           -1383.615  464179           106
+           -1383.615  782821           272
+           -1383.615  93468            3
+           -1383.615  507154           387
+           -1383.615  534483           290
+           -1383.615  748692           204
+           -1383.615  407168           44
+           -1383.615  741888           138
+           -1383.615  202790           198
+           -1383.615  903420           5
+           -1383.615  918558           412
+           -1383.615  629320           222
+           -1383.615  794236           127
+           -1383.615  404510           442
+           -1383.615  211281           292
+           -1383.615  922596           456
+           -1383.615  136842           58
+           -1383.615  370466           41
+           -1383.615  65651            214
+           -1383.615  829540           324
+           -1383.615  824126           287
+           -1383.615  359578           458
+           -1383.615  391179           78
+           -1383.615  724519           333
+           -1383.615  736574           414
+           -1383.615  518828           432
+           -1383.615  603842           61
+           -1383.615  462953           7
+           -1383.615  856536           144
+           -1383.615  626087           314
+           -1383.615  371246           101
+           -1383.615  850840           232
+           -1383.615  340112           126
+           -1383.615  476498           179
+           -1383.615  283492           435
+           -1383.615  576726           280
+           -1383.615  888905           444
+           -1383.615  281462           285
+           -1383.615  344422           296
+           -1383.615  780698           337
+           -1383.615  637345           19
+           -1383.615  471040           403
+           -1383.615  207896           25
+           -1383.615  565819           65
+           -1383.615  17359            227
+           -1383.615  840078           203
+           -1383.615  165853           105
+           -1383.615  900268           327
+           -1383.615  164305           128
+           -1383.615  597614           284
+           -1383.615  765392           382
+           -1383.615  422103           62
+           -1383.615  526324           178
+           -1383.615  669634           335
+           -1383.615  836515           341
+           -1383.615  247224           94
+           -1383.615  848890           95
+           -1383.615  432148           30
+           -1383.615  871851           257
+           -1383.615  751054           117
+           -1383.615  407108           366
+           -1383.615  801717           364
+           -1383.615  602797           336
+           -1384.011  782200           84
+           -1384.011  156536           245
+           -1390.123  383986           159
+
+2 perturbed starting value run(s) did not converge.
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+     IN THE OPTIMIZATION, ONE OR MORE LOGIT THRESHOLDS APPROACHED AND WERE SET
+     AT THE EXTREME VALUES.  EXTREME VALUES ARE -15.000 AND 15.000.
+     THE FOLLOWING THRESHOLDS WERE SET AT THESE VALUES:
+     * THRESHOLD 1 OF CLASS INDICATOR IMAGES FOR CLASS 1 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR IMAGES FOR CLASS 1 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR VIDEO FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR VIDEO FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR BOOK FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR BOOK FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR CREATE FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR CREATE FOR CLASS 2 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR IMAGES FOR CLASS 4 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR IMAGES FOR CLASS 4 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR MUSIC FOR CLASS 4 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR MUSIC FOR CLASS 4 AT ITERATION 257
+     * THRESHOLD 1 OF CLASS INDICATOR BOOK FOR CLASS 4 AT ITERATION 257
+     * THRESHOLD 2 OF CLASS INDICATOR BOOK FOR CLASS 4 AT ITERATION 257
+
+
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       59
+
+Loglikelihood
+
+          H0 Value                       -1383.615
+          H0 Scaling Correction Factor      1.0856
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    2885.230
+          Bayesian (BIC)                  3086.780
+          Sample-Size Adjusted BIC        2899.797
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           1516.691
+          Degrees of Freedom                  2123
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            532.045
+          Degrees of Freedom                  2123
+          P-Value                           1.0000
+
+** Of the 2187 cells in the latent class indicator table, 4
+   were deleted in the calculation of chi-square due to extreme values.
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1         75.26817          0.33453
+       2         21.29723          0.09465
+       3         68.92681          0.30634
+       4         59.50779          0.26448
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1         75.26817          0.33453
+       2         21.29723          0.09465
+       3         68.92681          0.30634
+       4         59.50779          0.26448
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1               76          0.33778
+       2               21          0.09333
+       3               67          0.29778
+       4               61          0.27111
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.887
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2        3        4
+
+    1   0.977    0.012    0.010    0.001
+    2   0.006    0.949    0.045    0.000
+    3   0.009    0.007    0.918    0.066
+    4   0.005    0.000    0.094    0.902
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2        3        4
+
+    1   0.986    0.002    0.008    0.004
+    2   0.043    0.935    0.021    0.000
+    3   0.011    0.014    0.892    0.083
+    4   0.002    0.000    0.074    0.924
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2        3        4
+
+    1      5.588   -0.761    0.785    0.000
+    2     10.679   13.749    9.960    0.000
+    3     -2.053   -1.798    2.374    0.000
+    4     -6.422  -13.737   -2.520    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ Thresholds
+    IMAGES$1          -3.632      1.394     -2.606      0.009
+    IMAGES$2          15.000      0.000    999.000    999.000
+    MUSIC$1           -4.147      1.098     -3.778      0.000
+    MUSIC$2            0.257      0.239      1.072      0.284
+    VIDEO$1           -1.308      0.299     -4.367      0.000
+    VIDEO$2            1.582      0.323      4.896      0.000
+    BOOK$1            -0.963      0.273     -3.524      0.000
+    BOOK$2             3.073      0.596      5.153      0.000
+    GAMES$1           -0.693      0.252     -2.748      0.006
+    GAMES$2            1.467      0.299      4.901      0.000
+    CAMERA$1          -0.543      0.242     -2.247      0.025
+    CAMERA$2           0.579      0.245      2.358      0.018
+    CREATE$1           0.746      0.253      2.950      0.003
+    CREATE$2           2.880      0.517      5.567      0.000
+
+Latent Class 2
+
+ Thresholds
+    IMAGES$1           0.335      0.656      0.510      0.610
+    IMAGES$2           2.987      1.318      2.267      0.023
+    MUSIC$1            2.318      1.250      1.855      0.064
+    MUSIC$2            2.318      1.250      1.855      0.064
+    VIDEO$1            2.802      2.069      1.354      0.176
+    VIDEO$2           15.000      0.000    999.000    999.000
+    BOOK$1             2.352      2.552      0.922      0.357
+    BOOK$2            15.000      0.000    999.000    999.000
+    GAMES$1           -0.231      0.584     -0.395      0.693
+    GAMES$2            0.696      0.593      1.174      0.240
+    CAMERA$1          -0.884      0.514     -1.718      0.086
+    CAMERA$2           0.185      0.625      0.296      0.767
+    CREATE$1           2.471      1.594      1.550      0.121
+    CREATE$2          15.000      0.000    999.000    999.000
+
+Latent Class 3
+
+ Thresholds
+    IMAGES$1          -1.816      0.773     -2.349      0.019
+    IMAGES$2          -1.816      0.773     -2.349      0.019
+    MUSIC$1           -1.723      0.634     -2.716      0.007
+    MUSIC$2           -1.265      0.550     -2.299      0.022
+    VIDEO$1           -1.693      0.469     -3.612      0.000
+    VIDEO$2            0.573      0.417      1.373      0.170
+    BOOK$1            -1.688      0.391     -4.316      0.000
+    BOOK$2             1.401      0.432      3.247      0.001
+    GAMES$1           -0.278      0.306     -0.910      0.363
+    GAMES$2            1.106      0.318      3.480      0.001
+    CAMERA$1          -0.526      0.314     -1.674      0.094
+    CAMERA$2           0.359      0.325      1.103      0.270
+    CREATE$1           0.392      0.294      1.337      0.181
+    CREATE$2           2.109      0.494      4.268      0.000
+
+Latent Class 4
+
+ Thresholds
+    IMAGES$1         -15.000      0.000    999.000    999.000
+    IMAGES$2          -3.461      0.866     -3.998      0.000
+    MUSIC$1          -15.000      0.000    999.000    999.000
+    MUSIC$2          -15.000      0.000    999.000    999.000
+    VIDEO$1           -2.349      0.663     -3.543      0.000
+    VIDEO$2           -2.349      0.663     -3.543      0.000
+    BOOK$1           -15.000      0.000    999.000    999.000
+    BOOK$2            -1.798      0.786     -2.288      0.022
+    GAMES$1           -1.626      0.471     -3.454      0.001
+    GAMES$2           -0.403      0.361     -1.115      0.265
+    CAMERA$1          -1.934      0.487     -3.974      0.000
+    CAMERA$2          -0.953      0.356     -2.678      0.007
+    CREATE$1          -1.579      0.505     -3.129      0.002
+    CREATE$2           0.567      0.335      1.694      0.090
+
+Categorical Latent Variables
+
+ Means
+    C#1                0.235      0.237      0.991      0.322
+    C#2               -1.028      0.385     -2.670      0.008
+    C#3                0.147      0.299      0.492      0.623
+
+
+RESULTS IN PROBABILITY SCALE
+
+Latent Class 1
+
+ IMAGES
+    Category 1         0.026      0.035      0.736      0.462
+    Category 2         0.974      0.035     27.829      0.000
+    Category 3         0.000      0.000      0.000      1.000
+ MUSIC
+    Category 1         0.016      0.017      0.925      0.355
+    Category 2         0.548      0.059      9.323      0.000
+    Category 3         0.436      0.059      7.413      0.000
+ VIDEO
+    Category 1         0.213      0.050      4.244      0.000
+    Category 2         0.617      0.060     10.354      0.000
+    Category 3         0.170      0.046      3.730      0.000
+ BOOK
+    Category 1         0.276      0.055      5.057      0.000
+    Category 2         0.679      0.056     12.105      0.000
+    Category 3         0.044      0.025      1.755      0.079
+ GAMES
+    Category 1         0.333      0.056      5.948      0.000
+    Category 2         0.479      0.059      8.115      0.000
+    Category 3         0.187      0.046      4.111      0.000
+ CAMERA
+    Category 1         0.367      0.056      6.540      0.000
+    Category 2         0.273      0.053      5.142      0.000
+    Category 3         0.359      0.056      6.358      0.000
+ CREATE
+    Category 1         0.678      0.055     12.294      0.000
+    Category 2         0.269      0.053      5.114      0.000
+    Category 3         0.053      0.026      2.041      0.041
+
+Latent Class 2
+
+ IMAGES
+    Category 1         0.583      0.160      3.654      0.000
+    Category 2         0.369      0.151      2.442      0.015
+    Category 3         0.048      0.060      0.797      0.425
+ MUSIC
+    Category 1         0.910      0.102      8.925      0.000
+    Category 2         0.000      0.000      0.000      1.000
+    Category 3         0.090      0.102      0.879      0.379
+ VIDEO
+    Category 1         0.943      0.112      8.445      0.000
+    Category 2         0.057      0.112      0.513      0.608
+    Category 3         0.000      0.000      0.000      1.000
+ BOOK
+    Category 1         0.913      0.202      4.510      0.000
+    Category 2         0.087      0.202      0.429      0.668
+    Category 3         0.000      0.000      0.000      1.000
+ GAMES
+    Category 1         0.443      0.144      3.072      0.002
+    Category 2         0.225      0.186      1.209      0.227
+    Category 3         0.333      0.132      2.529      0.011
+ CAMERA
+    Category 1         0.292      0.106      2.748      0.006
+    Category 2         0.254      0.148      1.720      0.085
+    Category 3         0.454      0.155      2.929      0.003
+ CREATE
+    Category 1         0.922      0.114      8.055      0.000
+    Category 2         0.078      0.114      0.680      0.496
+    Category 3         0.000      0.000      0.000      1.000
+
+Latent Class 3
+
+ IMAGES
+    Category 1         0.140      0.093      1.504      0.133
+    Category 2         0.000      0.000      1.796      0.072
+    Category 3         0.860      0.093      9.243      0.000
+ MUSIC
+    Category 1         0.151      0.082      1.858      0.063
+    Category 2         0.069      0.035      1.938      0.053
+    Category 3         0.780      0.094      8.256      0.000
+ VIDEO
+    Category 1         0.155      0.062      2.526      0.012
+    Category 2         0.484      0.086      5.620      0.000
+    Category 3         0.360      0.096      3.746      0.000
+ BOOK
+    Category 1         0.156      0.052      3.030      0.002
+    Category 2         0.646      0.075      8.615      0.000
+    Category 3         0.198      0.068      2.888      0.004
+ GAMES
+    Category 1         0.431      0.075      5.745      0.000
+    Category 2         0.320      0.077      4.153      0.000
+    Category 3         0.249      0.059      4.190      0.000
+ CAMERA
+    Category 1         0.371      0.073      5.061      0.000
+    Category 2         0.217      0.069      3.151      0.002
+    Category 3         0.411      0.079      5.224      0.000
+ CREATE
+    Category 1         0.597      0.071      8.449      0.000
+    Category 2         0.295      0.064      4.602      0.000
+    Category 3         0.108      0.048      2.270      0.023
+
+Latent Class 4
+
+ IMAGES
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.030      0.026      1.191      0.234
+    Category 3         0.970      0.026     37.945      0.000
+ MUSIC
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.000      0.000      0.000      1.000
+    Category 3         1.000      0.000      0.000      1.000
+ VIDEO
+    Category 1         0.087      0.053      1.652      0.099
+    Category 2         0.000      0.000      0.000      1.000
+    Category 3         0.913      0.053     17.307      0.000
+ BOOK
+    Category 1         0.000      0.000      0.000      1.000
+    Category 2         0.142      0.096      1.484      0.138
+    Category 3         0.858      0.096      8.955      0.000
+ GAMES
+    Category 1         0.164      0.065      2.543      0.011
+    Category 2         0.236      0.071      3.344      0.001
+    Category 3         0.599      0.087      6.913      0.000
+ CAMERA
+    Category 1         0.126      0.054      2.352      0.019
+    Category 2         0.152      0.060      2.517      0.012
+    Category 3         0.722      0.071     10.098      0.000
+ CREATE
+    Category 1         0.171      0.072      2.391      0.017
+    Category 2         0.467      0.073      6.409      0.000
+    Category 3         0.362      0.077      4.683      0.000
+
+
+LATENT CLASS ODDS RATIO RESULTS
+
+                                         (Est. - 1) Two-Tailed
+                    Estimate       S.E.     / S.E.    P-Value
+
+Latent Class 1 Compared to Latent Class 2
+
+ IMAGES
+    Category > 1      52.813     71.744      0.722      0.470
+    Category > 2       0.000      0.000    999.000    999.000
+ MUSIC
+    Category > 1     642.341   1102.386      0.582      0.561
+    Category > 2       7.855     10.233      0.670      0.503
+ VIDEO
+    Category > 1      60.898    129.191      0.464      0.643
+    Category > 2   *********      0.000    999.000    999.000
+ BOOK
+    Category > 1      27.526     71.340      0.372      0.710
+    Category > 2   *********      0.000    999.000    999.000
+ GAMES
+    Category > 1       1.588      1.030      0.571      0.568
+    Category > 2       0.462      0.306     -1.755      0.079
+ CAMERA
+    Category > 1       0.711      0.408     -0.707      0.479
+    Category > 2       0.674      0.465     -0.701      0.483
+ CREATE
+    Category > 1       5.617      9.055      0.510      0.610
+    Category > 2   *********      0.000    999.000    999.000
+
+Latent Class 1 Compared to Latent Class 3
+
+ IMAGES
+    Category > 1       6.149     11.942      0.431      0.666
+    Category > 2       0.000      0.000    999.000    999.000
+ MUSIC
+    Category > 1      11.296     14.226      0.724      0.469
+    Category > 2       0.218      0.129     -6.042      0.000
+ VIDEO
+    Category > 1       0.680      0.386     -0.828      0.407
+    Category > 2       0.365      0.189     -3.355      0.001
+ BOOK
+    Category > 1       0.484      0.233     -2.210      0.027
+    Category > 2       0.188      0.140     -5.819      0.000
+ GAMES
+    Category > 1       1.514      0.603      0.852      0.394
+    Category > 2       0.697      0.308     -0.985      0.324
+ CAMERA
+    Category > 1       1.017      0.404      0.043      0.966
+    Category > 2       0.802      0.324     -0.611      0.541
+ CREATE
+    Category > 1       0.702      0.273     -1.088      0.277
+    Category > 2       0.462      0.335     -1.607      0.108
+
+Latent Class 1 Compared to Latent Class 4
+
+ IMAGES
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.000      0.000    999.000    999.000
+ MUSIC
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.000      0.000    999.000    999.000
+ VIDEO
+    Category > 1       0.353      0.258     -2.508      0.012
+    Category > 2       0.020      0.014    -68.023      0.000
+ BOOK
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.008      0.007   -132.509      0.000
+ GAMES
+    Category > 1       0.393      0.211     -2.872      0.004
+    Category > 2       0.154      0.072    -11.676      0.000
+ CAMERA
+    Category > 1       0.249      0.135     -5.559      0.000
+    Category > 2       0.216      0.094     -8.344      0.000
+ CREATE
+    Category > 1       0.098      0.055    -16.387      0.000
+    Category > 2       0.099      0.061    -14.679      0.000
+
+Latent Class 2 Compared to Latent Class 3
+
+ IMAGES
+    Category > 1       0.116      0.147     -5.998      0.000
+    Category > 2       0.008      0.013    -75.808      0.000
+ MUSIC
+    Category > 1       0.018      0.028    -35.648      0.000
+    Category > 2       0.028      0.042    -23.219      0.000
+ VIDEO
+    Category > 1       0.011      0.022    -44.847      0.000
+    Category > 2       0.000      0.000    999.000    999.000
+ BOOK
+    Category > 1       0.018      0.045    -21.789      0.000
+    Category > 2       0.000      0.000    999.000    999.000
+ GAMES
+    Category > 1       0.953      0.689     -0.068      0.946
+    Category > 2       1.507      1.091      0.464      0.642
+ CAMERA
+    Category > 1       1.430      0.893      0.481      0.630
+    Category > 2       1.190      0.943      0.201      0.841
+ CREATE
+    Category > 1       0.125      0.208     -4.216      0.000
+    Category > 2       0.000      0.000    999.000    999.000
+
+Latent Class 2 Compared to Latent Class 4
+
+ IMAGES
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.002      0.002   -401.985      0.000
+ MUSIC
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.000      0.000    999.000    999.000
+ VIDEO
+    Category > 1       0.006      0.012    -80.441      0.000
+    Category > 2       0.000      0.000    999.000    999.000
+ BOOK
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.000      0.000    999.000    999.000
+ GAMES
+    Category > 1       0.248      0.172     -4.386      0.000
+    Category > 2       0.333      0.242     -2.749      0.006
+ CAMERA
+    Category > 1       0.350      0.245     -2.657      0.008
+    Category > 2       0.320      0.236     -2.874      0.004
+ CREATE
+    Category > 1       0.017      0.027    -36.565      0.000
+    Category > 2       0.000      0.000    999.000    999.000
+
+Latent Class 3 Compared to Latent Class 4
+
+ IMAGES
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.193      0.233     -3.458      0.001
+ MUSIC
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.000      0.000    999.000    999.000
+ VIDEO
+    Category > 1       0.519      0.482     -0.999      0.318
+    Category > 2       0.054      0.042    -22.725      0.000
+ BOOK
+    Category > 1       0.000      0.000    999.000    999.000
+    Category > 2       0.041      0.036    -26.857      0.000
+ GAMES
+    Category > 1       0.260      0.159     -4.643      0.000
+    Category > 2       0.221      0.107     -7.305      0.000
+ CAMERA
+    Category > 1       0.245      0.156     -4.851      0.000
+    Category > 2       0.269      0.131     -5.558      0.000
+ CREATE
+    Category > 1       0.139      0.086    -10.057      0.000
+    Category > 2       0.214      0.134     -5.848      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.492E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 3
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 4
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                    1             2             3             4             5
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                    6             7             8             9            10
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   11            12            13            14
+
+
+           TAU(U) FOR LATENT CLASS 2
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                   15            16            17            18            19
+
+
+           TAU(U) FOR LATENT CLASS 2
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   20            21            22            23            24
+
+
+           TAU(U) FOR LATENT CLASS 2
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   25            26            27            28
+
+
+           TAU(U) FOR LATENT CLASS 3
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                   29            30            31            32            33
+
+
+           TAU(U) FOR LATENT CLASS 3
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   34            35            36            37            38
+
+
+           TAU(U) FOR LATENT CLASS 3
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   39            40            41            42
+
+
+           TAU(U) FOR LATENT CLASS 4
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                   43            44            45            46            47
+
+
+           TAU(U) FOR LATENT CLASS 4
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   48            49            50            51            52
+
+
+           TAU(U) FOR LATENT CLASS 4
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   53            54            55            56
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                   57            58            59             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+     STARTING VALUES FOR LATENT CLASS 3
+
+
+     STARTING VALUES FOR LATENT CLASS 4
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -3.125        -1.098        -2.834        -1.653        -2.202
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+               -0.631        -2.227        -0.163        -1.713        -0.287
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -1.858        -0.920        -0.831         0.761
+
+
+           TAU(U) FOR LATENT CLASS 2
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -2.125        -0.098        -1.834        -0.653        -1.202
+
+
+           TAU(U) FOR LATENT CLASS 2
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                0.369        -1.227         0.837        -0.713         0.713
+
+
+           TAU(U) FOR LATENT CLASS 2
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -0.858         0.080         0.169         1.761
+
+
+           TAU(U) FOR LATENT CLASS 3
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -2.125        -0.098        -1.834        -0.653        -1.202
+
+
+           TAU(U) FOR LATENT CLASS 3
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                0.369        -1.227         0.837        -0.713         0.713
+
+
+           TAU(U) FOR LATENT CLASS 3
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -0.858         0.080         0.169         1.761
+
+
+           TAU(U) FOR LATENT CLASS 4
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -1.125         0.902        -0.834         0.347        -0.202
+
+
+           TAU(U) FOR LATENT CLASS 4
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                1.369        -0.227         1.837         0.287         1.713
+
+
+           TAU(U) FOR LATENT CLASS 4
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                0.142         1.080         1.169         2.761
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2           C#3           C#4
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+TECHNICAL 11 OUTPUT
+
+     Random Starts Specifications for the k-1 Class Analysis Model
+        Number of initial stage random starts                 500
+        Number of final stage optimizations                   100
+
+
+
+     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 3 (H0) VERSUS 4 CLASSES
+
+          H0 Loglikelihood Value                        -1409.639
+          2 Times the Loglikelihood Difference             52.048
+          Difference in the Number of Parameters               15
+          Mean                                            245.415
+          Standard Deviation                              281.691
+          P-Value                                          0.8104
+
+     LO-MENDELL-RUBIN ADJUSTED LRT TEST
+
+          Value                                            51.415
+          P-Value                                          0.8127
+
+
+     Beginning Time:  14:33:56
+        Ending Time:  14:34:46
+       Elapsed Time:  00:00:50
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

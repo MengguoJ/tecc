@@ -1,0 +1,29 @@
+TITLE:  Supplement: two-factor mixture, 2 classes;
+
+DATA:
+   FILE IS final_data.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   USEVARIABLES = images music video book games camera create;
+   CATEGORICAL = images music video book games camera create;
+   MISSING = ALL (-999);
+   CLASSES = c(2);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 200 50;
+   STITERATIONS = 20;
+   ALGORITHM = INTEGRATION;
+   INTEGRATION = 20;
+
+MODEL:
+   %OVERALL%
+   f1 BY images* music video camera;
+   f2 BY book* games create;
+   f1@1; f2@1;
+
+OUTPUT:
+   TECH1 TECH11;

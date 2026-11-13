@@ -1,0 +1,52 @@
+Mplus VERSION 8.3 (Mac)
+MUTHEN & MUTHEN
+09/29/2026   2:04 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Predictors of class membership, three-step (R3STEP);
+
+  DATA:
+     FILE IS final_data.dat;
+
+  VARIABLE:
+     NAMES = images music video book games camera create
+        age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+     USEVARIABLES = images music video book games camera create;
+     CATEGORICAL = images music video book games camera create;
+     AUXILIARY = (R3STEP) age educ exper ise dse urban rural statepk
+        fullday days pdrec pdfreq pdutil;
+     MISSING = ALL (-999);
+     CLASSES = c(2);
+
+  ANALYSIS:
+     TYPE = MIXTURE;
+     STARTS = 500 100;
+     STITERATIONS = 20;
+     ALGORITHM = INTEGRATION;
+     INTEGRATION = 30;
+
+  MODEL:
+     %OVERALL%
+     f BY images* music video book games camera create;
+     f@1;
+
+  OUTPUT:
+     TECH1;
+
+*** ERROR in VARIABLE command
+  Auxiliary variables with R3STEP, DU3STEP, DE3STEP, DCATEGORICAL, DCONTINUOUS, or BCH
+  are not available with TYPE=MIXTURE in conjunction with ALGORITHM=INTEGRATION.
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

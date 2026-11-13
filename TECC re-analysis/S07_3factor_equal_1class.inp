@@ -1,0 +1,30 @@
+TITLE:  Supplement: three factors, equal loadings within pairs, no classes;
+
+DATA:
+   FILE IS final_data.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   USEVARIABLES = images music video book games camera create;
+   CATEGORICAL = images music video book games camera create;
+   MISSING = ALL (-999);
+   CLASSES = c(1);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 20 5;
+   STITERATIONS = 20;
+   ALGORITHM = INTEGRATION;
+   INTEGRATION = 15;
+
+MODEL:
+   %OVERALL%
+   f1 BY images* music video;
+   f2 BY book* games (l2);
+   f3 BY camera* create (l3);
+   f1@1; f2@1; f3@1;
+
+OUTPUT:
+   TECH1;

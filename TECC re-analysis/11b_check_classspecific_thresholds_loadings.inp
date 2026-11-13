@@ -1,0 +1,42 @@
+TITLE:  Check (b): 1 factor, 2 classes, class-specific thresholds and loadings;
+
+DATA:
+   FILE IS final_data.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   USEVARIABLES = images music video book games camera create;
+   CATEGORICAL = images music video book games camera create;
+   MISSING = ALL (-999);
+   CLASSES = c(2);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 500 100;
+   STITERATIONS = 20;
+   ALGORITHM = INTEGRATION;
+   INTEGRATION = 30;
+
+MODEL:
+   %OVERALL%
+   f BY images* music video book games camera create;
+   f@1;
+
+   %c#1%
+   f BY images* music video book games camera create;
+   f@1;
+   [f@0];
+   [images$1 images$2 music$1 music$2 video$1 video$2 book$1 book$2
+    games$1 games$2 camera$1 camera$2 create$1 create$2];
+
+   %c#2%
+   f BY images* music video book games camera create;
+   f@1;
+   [f@0];
+   [images$1 images$2 music$1 music$2 video$1 video$2 book$1 book$2
+    games$1 games$2 camera$1 camera$2 create$1 create$2];
+
+OUTPUT:
+   TECH1;

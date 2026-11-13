@@ -1,0 +1,532 @@
+Mplus VERSION 8.3 (Mac)
+MUTHEN & MUTHEN
+10/10/2026  10:14 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Sensitivity: one-factor model, 1 class(es), excluding 3 extreme responders;
+
+  DATA:
+     FILE IS final_data_sensitivity.dat;
+
+  VARIABLE:
+     NAMES = images music video book games camera create
+        age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+     USEVARIABLES = images music video book games camera create;
+     CATEGORICAL = images music video book games camera create;
+     MISSING = ALL (-999);
+     CLASSES = c(1);
+
+  ANALYSIS:
+     TYPE = MIXTURE;
+     STARTS = 20 5;
+     STITERATIONS = 20;
+     ALGORITHM = INTEGRATION;
+     INTEGRATION = 30;
+
+  MODEL:
+     %OVERALL%
+     f BY images* music video book games camera create;
+     f@1;
+
+  OUTPUT:
+     TECH1 TECH11;
+
+
+
+*** WARNING in OUTPUT command
+  TECH11 option is not available for TYPE=MIXTURE with only one class.
+  Request for TECH11 is ignored.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Sensitivity: one-factor model, 1 class(es), excluding 3 extreme responders;
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         222
+
+Number of dependent variables                                    7
+Number of independent variables                                  0
+Number of continuous latent variables                            1
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   IMAGES      MUSIC       VIDEO       BOOK        GAMES       CAMERA
+   CREATE
+
+Continuous latent variables
+   F
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  30
+  Dimensions of numerical integration                            1
+  Adaptive quadrature                                           ON
+Random Starts Specifications
+  Number of initial stage random starts                         20
+  Number of final stage optimizations                            5
+  Number of initial stage iterations                            20
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+Cholesky                                                        ON
+
+Input data file(s)
+  final_data_sensitivity.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    IMAGES
+      Category 1    0.108           24.000
+      Category 2    0.374           83.000
+      Category 3    0.518          115.000
+    MUSIC
+      Category 1    0.140           31.000
+      Category 2    0.207           46.000
+      Category 3    0.653          145.000
+    VIDEO
+      Category 1    0.234           52.000
+      Category 2    0.365           81.000
+      Category 3    0.401           89.000
+    BOOK
+      Category 1    0.230           51.000
+      Category 2    0.477          106.000
+      Category 3    0.293           65.000
+    GAMES
+      Category 1    0.333           74.000
+      Category 2    0.347           77.000
+      Category 3    0.320           71.000
+    CAMERA
+      Category 1    0.302           67.000
+      Category 2    0.225           50.000
+      Category 3    0.473          105.000
+    CREATE
+      Category 1    0.550          122.000
+      Category 2    0.315           70.000
+      Category 3    0.135           30.000
+
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -1417.039  608496           4
+           -1417.039  939021           8
+           -1417.040  637345           19
+           -1417.040  399671           13
+           -1417.040  68985            17
+
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       21
+
+Loglikelihood
+
+          H0 Value                       -1417.039
+          H0 Scaling Correction Factor      1.0193
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    2876.079
+          Bayesian (BIC)                  2947.535
+          Sample-Size Adjusted BIC        2880.984
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit for the Binary and Ordered Categorical
+(Ordinal) Outcomes**
+
+          Pearson Chi-Square
+
+          Value                           1543.795
+          Degrees of Freedom                  2158
+          P-Value                           1.0000
+
+          Likelihood Ratio Chi-Square
+
+          Value                            587.417
+          Degrees of Freedom                  2158
+          P-Value                           1.0000
+
+** Of the 2187 cells in the latent class indicator table, 7
+   were deleted in the calculation of chi-square due to extreme values.
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1        222.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1        222.00000          1.00000
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1              222          1.00000
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1
+
+    1   1.000
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1
+
+    1   1.000
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1
+
+    1      0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ F        BY
+    IMAGES             2.415      0.434      5.571      0.000
+    MUSIC              2.915      0.641      4.547      0.000
+    VIDEO              1.895      0.332      5.707      0.000
+    BOOK               2.220      0.355      6.260      0.000
+    GAMES              0.584      0.173      3.366      0.001
+    CAMERA             0.502      0.160      3.128      0.002
+    CREATE             1.161      0.208      5.571      0.000
+
+ Means
+    F                  0.000      0.000    999.000    999.000
+
+ Thresholds
+    IMAGES$1          -3.635      0.523     -6.953      0.000
+    IMAGES$2          -0.239      0.253     -0.942      0.346
+    MUSIC$1           -3.590      0.632     -5.679      0.000
+    MUSIC$2           -1.407      0.368     -3.824      0.000
+    VIDEO$1           -1.884      0.300     -6.280      0.000
+    VIDEO$2            0.535      0.216      2.479      0.013
+    BOOK$1            -2.094      0.320     -6.551      0.000
+    BOOK$2             1.476      0.270      5.467      0.000
+    GAMES$1           -0.753      0.154     -4.875      0.000
+    GAMES$2            0.802      0.154      5.216      0.000
+    CAMERA$1          -0.892      0.156     -5.718      0.000
+    CAMERA$2           0.107      0.142      0.756      0.450
+    CREATE$1           0.243      0.172      1.417      0.157
+    CREATE$2           2.298      0.256      8.986      0.000
+
+ Variances
+    F                  1.000      0.000    999.000    999.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.959E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              CAMERA        CREATE
+              ________      ________
+                    0             0
+
+
+           LAMBDA
+              F
+              ________
+ IMAGES             1
+ MUSIC              2
+ VIDEO              3
+ BOOK               4
+ GAMES              5
+ CAMERA             6
+ CREATE             7
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES             0
+ MUSIC              0             0
+ VIDEO              0             0             0
+ BOOK               0             0             0             0
+ GAMES              0             0             0             0             0
+ CAMERA             0             0             0             0             0
+ CREATE             0             0             0             0             0
+
+
+           THETA
+              CAMERA        CREATE
+              ________      ________
+ CAMERA             0
+ CREATE             0             0
+
+
+           ALPHA
+              F
+              ________
+                    0
+
+
+           BETA
+              F
+              ________
+ F                  0
+
+
+           PSI
+              F
+              ________
+ F                  0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                    8             9            10            11            12
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   13            14            15            16            17
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   18            19            20            21
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1
+              ________
+                    0
+
+
+           GAMMA(C)
+              F
+              ________
+ C#1                0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              CAMERA        CREATE
+              ________      ________
+                0.000         0.000
+
+
+           LAMBDA
+              F
+              ________
+ IMAGES         1.000
+ MUSIC          1.000
+ VIDEO          1.000
+ BOOK           1.000
+ GAMES          1.000
+ CAMERA         1.000
+ CREATE         1.000
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES         1.000
+ MUSIC          0.000         1.000
+ VIDEO          0.000         0.000         1.000
+ BOOK           0.000         0.000         0.000         1.000
+ GAMES          0.000         0.000         0.000         0.000         1.000
+ CAMERA         0.000         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              CAMERA        CREATE
+              ________      ________
+ CAMERA         1.000
+ CREATE         0.000         1.000
+
+
+           ALPHA
+              F
+              ________
+                0.000
+
+
+           BETA
+              F
+              ________
+ F              0.000
+
+
+           PSI
+              F
+              ________
+ F              1.000
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -2.110        -0.072        -1.818        -0.633        -1.185
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                0.402        -1.210         0.882        -0.693         0.755
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -0.839         0.108         0.199         1.856
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1
+              ________
+                0.000
+
+
+           GAMMA(C)
+              F
+              ________
+ C#1            0.000
+
+
+     Beginning Time:  22:14:36
+        Ending Time:  22:14:38
+       Elapsed Time:  00:00:02
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

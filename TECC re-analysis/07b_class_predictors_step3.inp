@@ -1,0 +1,33 @@
+TITLE:  Manual three-step, step 3: predictors of class membership
+        (class 1 = high-engagement group; classification error fixed from step 1);
+
+DATA:
+   FILE IS class_probs.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil cprob1 cprob2 n;
+   USEVARIABLES = n age educ exper ise dse urban rural statepk
+      fullday days pdrec pdfreq pdutil;
+   NOMINAL = n;
+   MISSING = *;
+   CLASSES = c(2);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 0;
+
+MODEL:
+   %OVERALL%
+   c ON age educ exper ise dse urban rural statepk
+      fullday days pdrec pdfreq pdutil;
+
+   %c#1%
+   [n#1@1.624];
+
+   %c#2%
+   [n#1@-3.335];
+
+OUTPUT:
+   CINTERVAL;

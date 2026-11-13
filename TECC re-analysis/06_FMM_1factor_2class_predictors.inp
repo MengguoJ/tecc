@@ -1,0 +1,34 @@
+TITLE:  Selected model with predictors (one-step);
+
+DATA:
+   FILE IS final_data.dat;
+
+VARIABLE:
+   NAMES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   USEVARIABLES = images music video book games camera create
+      age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   CATEGORICAL = images music video book games camera create;
+   MISSING = ALL (-999);
+   CLASSES = c(2);
+
+ANALYSIS:
+   TYPE = MIXTURE;
+   STARTS = 500 100;
+   STITERATIONS = 20;
+   ALGORITHM = INTEGRATION;
+   INTEGRATION = 30;
+
+MODEL:
+   %OVERALL%
+   f BY images* music video book games camera create;
+   f@1;
+   f ON age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+   c ON age educ exper ise dse urban rural statepk fullday
+      days pdrec pdfreq pdutil;
+
+OUTPUT:
+   TECH1 CINTERVAL;

@@ -1,0 +1,10 @@
+TITLE:  Data reading test;
+
+DATA:
+   FILE IS df_225.dat;
+
+VARIABLE:
+   NAMES = tab1-tab7 sp1-sp7 com1-com7;
+
+ANALYSIS:
+   TYPE = BASIC;

@@ -1,0 +1,2056 @@
+Mplus VERSION 8.3 (Mac)
+MUTHEN & MUTHEN
+09/29/2026   2:04 PM
+
+INPUT INSTRUCTIONS
+
+  TITLE:  Predictors of the engagement continuum (f ON x; classes not regressed on x);
+
+  DATA:
+     FILE IS final_data.dat;
+
+  VARIABLE:
+     NAMES = images music video book games camera create
+        age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+     USEVARIABLES = images music video book games camera create
+        age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+     CATEGORICAL = images music video book games camera create;
+     MISSING = ALL (-999);
+     CLASSES = c(2);
+
+  ANALYSIS:
+     TYPE = MIXTURE;
+     STARTS = 500 100;
+     STITERATIONS = 20;
+     ALGORITHM = INTEGRATION;
+     INTEGRATION = 30;
+
+  MODEL:
+     %OVERALL%
+     f BY images* music video book games camera create;
+     f@1;
+     f ON age educ exper ise dse urban rural statepk fullday
+        days pdrec pdfreq pdutil;
+
+  OUTPUT:
+     TECH1 CINTERVAL;
+
+
+
+*** WARNING
+  Data set contains cases with missing on x-variables.
+  These cases were not included in the analysis.
+  Number of cases with missing on x-variables:  3
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Predictors of the engagement continuum (f ON x; classes not regressed on x);
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         222
+
+Number of dependent variables                                    7
+Number of independent variables                                 13
+Number of continuous latent variables                            1
+Number of categorical latent variables                           1
+
+Observed dependent variables
+
+  Binary and ordered categorical (ordinal)
+   IMAGES      MUSIC       VIDEO       BOOK        GAMES       CAMERA
+   CREATE
+
+Observed independent variables
+   AGE         EDUC        EXPER       ISE         DSE         URBAN
+   RURAL       STATEPK     FULLDAY     DAYS        PDREC       PDFREQ
+   PDUTIL
+
+Continuous latent variables
+   F
+
+Categorical latent variables
+   C
+
+
+Estimator                                                      MLR
+Information matrix                                        OBSERVED
+Optimization Specifications for the Quasi-Newton Algorithm for
+Continuous Outcomes
+  Maximum number of iterations                                 100
+  Convergence criterion                                  0.100D-05
+Optimization Specifications for the EM Algorithm
+  Maximum number of iterations                                 500
+  Convergence criteria
+    Loglikelihood change                                 0.100D-02
+    Relative loglikelihood change                        0.100D-05
+    Derivative                                           0.100D-02
+Optimization Specifications for the M step of the EM Algorithm for
+Categorical Latent variables
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+Optimization Specifications for the M step of the EM Algorithm for
+Censored, Binary or Ordered Categorical (Ordinal), Unordered
+Categorical (Nominal) and Count Outcomes
+  Number of M step iterations                                    1
+  M step convergence criterion                           0.100D-02
+  Basis for M step termination                           ITERATION
+  Maximum value for logit thresholds                            15
+  Minimum value for logit thresholds                           -15
+  Minimum expected cell size for chi-square              0.100D-01
+Maximum number of iterations for H1                           2000
+Convergence criterion for H1                             0.100D-03
+Optimization algorithm                                         EMA
+Integration Specifications
+  Type                                                    STANDARD
+  Number of integration points                                  30
+  Dimensions of numerical integration                            1
+  Adaptive quadrature                                           ON
+Random Starts Specifications
+  Number of initial stage random starts                        500
+  Number of final stage optimizations                          100
+  Number of initial stage iterations                            20
+  Initial stage convergence criterion                    0.100D+01
+  Random starts scale                                    0.500D+01
+  Random seed for generating random starts                       0
+Link                                                         LOGIT
+Cholesky                                                        ON
+
+Input data file(s)
+  final_data.dat
+Input data format  FREE
+
+
+SUMMARY OF DATA
+
+     Number of missing data patterns             1
+     Number of y missing data patterns           0
+     Number of u missing data patterns           1
+
+
+COVARIANCE COVERAGE OF DATA
+
+Minimum covariance coverage value   0.100
+
+
+UNIVARIATE PROPORTIONS AND COUNTS FOR CATEGORICAL VARIABLES
+
+    IMAGES
+      Category 1    0.108           24.000
+      Category 2    0.365           81.000
+      Category 3    0.527          117.000
+    MUSIC
+      Category 1    0.140           31.000
+      Category 2    0.207           46.000
+      Category 3    0.653          145.000
+    VIDEO
+      Category 1    0.234           52.000
+      Category 2    0.356           79.000
+      Category 3    0.410           91.000
+    BOOK
+      Category 1    0.230           51.000
+      Category 2    0.468          104.000
+      Category 3    0.302           67.000
+    GAMES
+      Category 1    0.333           74.000
+      Category 2    0.333           74.000
+      Category 3    0.333           74.000
+    CAMERA
+      Category 1    0.297           66.000
+      Category 2    0.221           49.000
+      Category 3    0.482          107.000
+    CREATE
+      Category 1    0.541          120.000
+      Category 2    0.311           69.000
+      Category 3    0.149           33.000
+
+
+
+UNIVARIATE SAMPLE STATISTICS
+
+
+     UNIVARIATE HIGHER-ORDER MOMENT DESCRIPTIVE STATISTICS
+
+         Variable/         Mean/     Skewness/   Minimum/ % with                Percentiles
+        Sample Size      Variance    Kurtosis    Maximum  Min/Max      20%/60%    40%/80%    Median
+
+     AGE                   0.000       0.304      -1.873    0.90%      -0.928     -0.361     -0.078
+             222.000       0.995      -0.494       3.229    0.45%       0.300      0.867
+     EDUC                  0.000      -0.704      -3.135    0.90%      -0.560     -0.560      0.084
+             222.000       0.995       0.578       2.015    2.25%       0.728      0.728
+     EXPER                 0.000       0.721      -1.322    3.15%      -0.983     -0.530     -0.304
+             222.000       0.995      -0.377       2.978    0.45%       0.149      0.828
+     ISE                   0.000      -0.231      -2.986    0.45%      -0.861     -0.153      0.083
+             222.000       0.995      -0.342       1.735    5.86%       0.083      0.791
+     DSE                   0.000      -0.809      -3.327    0.45%      -0.669     -0.226      0.218
+             222.000       0.995       0.231       1.104   27.03%       0.218      1.104
+     URBAN                 0.342       0.665       0.000   65.77%       0.000      0.000      0.000
+             222.000       0.225      -1.558       1.000   34.23%       0.000      1.000
+     RURAL                 0.288       0.935       0.000   71.17%       0.000      0.000      0.000
+             222.000       0.205      -1.126       1.000   28.83%       0.000      1.000
+     STATEPK               0.324       0.751       0.000   67.57%       0.000      0.000      0.000
+             222.000       0.219      -1.437       1.000   32.43%       0.000      1.000
+     FULLDAY               0.626      -0.521       0.000   37.39%       0.000      1.000      1.000
+             222.000       0.234      -1.728       1.000   62.61%       1.000      1.000
+     DAYS                  0.000      -1.152      -3.653    1.80%      -0.660     -0.660      0.836
+             222.000       0.995       1.556       0.836   52.25%       0.836      0.836
+     PDREC                 0.532      -0.126       0.000   46.85%       0.000      0.000      1.000
+             222.000       0.249      -1.984       1.000   53.15%       1.000      1.000
+     PDFREQ                0.000       0.634      -0.898   45.95%      -0.898     -0.898     -0.173
+             222.000       0.995      -1.072       2.002    6.76%      -0.173      1.277
+     PDUTIL                0.000      -1.815      -5.466    0.90%      -0.004     -0.004     -0.004
+             222.000       0.995       9.195       2.397    3.60%      -0.004      0.431
+
+RANDOM STARTS RESULTS RANKED FROM THE BEST TO THE WORST LOGLIKELIHOOD VALUES
+
+Final stage loglikelihood values at local maxima, seeds, and initial stage start numbers:
+
+           -1379.490  197223           332
+           -1379.491  576726           280
+           -1379.491  468036           131
+           -1379.491  358488           264
+           -1379.491  985387           381
+           -1379.491  987090           70
+           -1379.491  50887            389
+           -1379.491  637095           207
+           -1379.491  335485           496
+           -1379.491  937885           426
+           -1379.491  551639           55
+           -1379.491  535804           111
+           -1379.491  804660           260
+           -1379.491  404426           344
+           -1379.491  51375            148
+           -1379.491  499150           216
+           -1379.491  930872           277
+           -1379.491  654136           167
+           -1379.491  749635           420
+           -1379.491  529496           343
+           -1379.491  791285           416
+           -1379.491  561664           392
+           -1379.491  939709           112
+           -1379.491  741484           441
+           -1379.492  622860           259
+           -1379.492  432148           30
+           -1379.492  195353           225
+           -1379.492  741888           138
+           -1379.492  263221           447
+           -1379.492  726035           191
+           -1379.492  966014           37
+           -1379.492  840031           276
+           -1379.492  182524           373
+           -1379.492  253358           2
+           -1379.492  614009           317
+           -1379.492  930323           267
+           -1379.493  483369           270
+           -1379.493  835767           210
+           -1379.493  625191           350
+           -1379.494  415931           10
+           -1379.494  275475           413
+           -1379.494  545140           278
+           -1379.494  69413            472
+           -1379.494  359578           458
+           -1379.494  215353           164
+           -1379.495  27071            15
+           -1379.495  760878           249
+           -1379.495  247224           94
+           -1379.496  937588           293
+           -1379.496  801065           393
+           -1379.496  802779           122
+           -1379.496  790452           303
+           -1379.497  539751           459
+           -1379.497  606576           151
+           -1379.497  644297           340
+           -1379.498  373505           88
+           -1379.499  273992           349
+           -1379.500  437181           135
+           -1379.501  787985           482
+           -1379.501  888905           444
+           -1379.502  40340            188
+           -1379.502  717754           180
+           -1382.797  605161           409
+           -1382.799  264081           186
+           -1382.803  1548             384
+           -1382.823  364676           27
+           -1382.823  173440           328
+           -1382.833  848331           137
+           -1382.834  939021           8
+           -1382.839  246575           291
+           -1382.839  903420           5
+           -1382.845  12477            155
+           -1382.852  575700           100
+           -1382.854  185071           370
+           -1382.867  319144           176
+           -1382.872  923437           398
+           -1382.874  860102           495
+           -1382.874  789985           67
+           -1382.876  153053           378
+           -1382.879  963053           43
+           -1382.880  931874           141
+           -1382.880  798839           312
+           -1382.880  85734            411
+           -1382.881  922596           456
+           -1382.881  321390           133
+           -1382.881  484501           163
+           -1382.881  unperturbed      0
+           -1382.881  479273           156
+           -1382.883  416250           390
+           -1382.883  829540           324
+           -1382.888  665121           417
+           -1382.891  80438            246
+           -1382.893  66276            217
+           -1382.895  370466           41
+           -1382.901  562716           300
+           -1382.901  804561           59
+           -1382.902  347515           24
+           -1382.922  68850            462
+           -1382.942  283492           435
+           -1382.949  137377           397
+
+
+
+THE BEST LOGLIKELIHOOD VALUE HAS BEEN REPLICATED.  RERUN WITH AT LEAST TWICE THE
+RANDOM STARTS TO CHECK THAT THE BEST LOGLIKELIHOOD IS STILL OBTAINED AND REPLICATED.
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                       36
+
+Loglikelihood
+
+          H0 Value                       -1379.490
+          H0 Scaling Correction Factor      1.0650
+            for MLR
+
+Information Criteria
+
+          Akaike (AIC)                    2830.981
+          Bayesian (BIC)                  2953.477
+          Sample-Size Adjusted BIC        2839.390
+            (n* = (n + 2) / 24)
+
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THE ESTIMATED MODEL
+
+    Latent
+   Classes
+
+       1         31.05199          0.13987
+       2        190.94801          0.86013
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON ESTIMATED POSTERIOR PROBABILITIES
+
+    Latent
+   Classes
+
+       1         31.05199          0.13987
+       2        190.94801          0.86013
+
+
+FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASSES
+BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP
+
+Class Counts and Proportions
+
+    Latent
+   Classes
+
+       1               35          0.15766
+       2              187          0.84234
+
+
+CLASSIFICATION QUALITY
+
+     Entropy                         0.823
+
+
+Average Latent Class Probabilities for Most Likely Latent Class Membership (Row)
+by Latent Class (Column)
+
+           1        2
+
+    1   0.779    0.221
+    2   0.020    0.980
+
+
+Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+           1        2
+
+    1   0.878    0.122
+    2   0.041    0.959
+
+
+Logits for the Classification Probabilities for the Most Likely Latent Class Membership (Column)
+by Latent Class (Row)
+
+              1        2
+
+    1      1.973    0.000
+    2     -3.164    0.000
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+Latent Class 1
+
+ F        BY
+    IMAGES             1.737      0.371      4.682      0.000
+    MUSIC              1.871      0.493      3.795      0.000
+    VIDEO              1.175      0.300      3.920      0.000
+    BOOK               1.350      0.371      3.643      0.000
+    GAMES              0.379      0.106      3.580      0.000
+    CAMERA             0.312      0.114      2.727      0.006
+    CREATE             0.585      0.202      2.899      0.004
+
+ F          ON
+    AGE               -0.346      0.129     -2.689      0.007
+    EDUC               0.033      0.108      0.303      0.762
+    EXPER              0.162      0.120      1.353      0.176
+    ISE                0.289      0.167      1.725      0.084
+    DSE               -0.086      0.142     -0.607      0.544
+    URBAN             -0.594      0.245     -2.428      0.015
+    RURAL             -0.406      0.278     -1.461      0.144
+    STATEPK            0.075      0.355      0.213      0.832
+    FULLDAY           -0.116      0.247     -0.469      0.639
+    DAYS               0.011      0.125      0.085      0.932
+    PDREC              0.262      0.275      0.954      0.340
+    PDFREQ             0.236      0.145      1.634      0.102
+    PDUTIL             0.500      0.152      3.290      0.001
+
+ Intercepts
+    F                  4.604      1.397      3.295      0.001
+
+ Thresholds
+    IMAGES$1          -3.567      0.702     -5.084      0.000
+    IMAGES$2          -0.154      0.436     -0.352      0.725
+    MUSIC$1           -3.235      0.703     -4.600      0.000
+    MUSIC$2           -1.182      0.504     -2.347      0.019
+    VIDEO$1           -1.662      0.363     -4.574      0.000
+    VIDEO$2            0.683      0.293      2.334      0.020
+    BOOK$1            -1.816      0.354     -5.133      0.000
+    BOOK$2             1.703      0.384      4.439      0.000
+    GAMES$1           -0.650      0.174     -3.735      0.000
+    GAMES$2            0.903      0.176      5.138      0.000
+    CAMERA$1          -0.820      0.166     -4.947      0.000
+    CAMERA$2           0.185      0.160      1.155      0.248
+    CREATE$1           0.367      0.198      1.850      0.064
+    CREATE$2           2.460      0.294      8.359      0.000
+
+ Residual Variances
+    F                  1.000      0.000    999.000    999.000
+
+Latent Class 2
+
+ F        BY
+    IMAGES             1.737      0.371      4.682      0.000
+    MUSIC              1.871      0.493      3.795      0.000
+    VIDEO              1.175      0.300      3.920      0.000
+    BOOK               1.350      0.371      3.643      0.000
+    GAMES              0.379      0.106      3.580      0.000
+    CAMERA             0.312      0.114      2.727      0.006
+    CREATE             0.585      0.202      2.899      0.004
+
+ F          ON
+    AGE               -0.346      0.129     -2.689      0.007
+    EDUC               0.033      0.108      0.303      0.762
+    EXPER              0.162      0.120      1.353      0.176
+    ISE                0.289      0.167      1.725      0.084
+    DSE               -0.086      0.142     -0.607      0.544
+    URBAN             -0.594      0.245     -2.428      0.015
+    RURAL             -0.406      0.278     -1.461      0.144
+    STATEPK            0.075      0.355      0.213      0.832
+    FULLDAY           -0.116      0.247     -0.469      0.639
+    DAYS               0.011      0.125      0.085      0.932
+    PDREC              0.262      0.275      0.954      0.340
+    PDFREQ             0.236      0.145      1.634      0.102
+    PDUTIL             0.500      0.152      3.290      0.001
+
+ Intercepts
+    F                  0.000      0.000    999.000    999.000
+
+ Thresholds
+    IMAGES$1          -3.567      0.702     -5.084      0.000
+    IMAGES$2          -0.154      0.436     -0.352      0.725
+    MUSIC$1           -3.235      0.703     -4.600      0.000
+    MUSIC$2           -1.182      0.504     -2.347      0.019
+    VIDEO$1           -1.662      0.363     -4.574      0.000
+    VIDEO$2            0.683      0.293      2.334      0.020
+    BOOK$1            -1.816      0.354     -5.133      0.000
+    BOOK$2             1.703      0.384      4.439      0.000
+    GAMES$1           -0.650      0.174     -3.735      0.000
+    GAMES$2            0.903      0.176      5.138      0.000
+    CAMERA$1          -0.820      0.166     -4.947      0.000
+    CAMERA$2           0.185      0.160      1.155      0.248
+    CREATE$1           0.367      0.198      1.850      0.064
+    CREATE$2           2.460      0.294      8.359      0.000
+
+ Residual Variances
+    F                  1.000      0.000    999.000    999.000
+
+Categorical Latent Variables
+
+ Means
+    C#1               -1.816      0.399     -4.551      0.000
+
+
+BRANT WALD TEST FOR PROPORTIONAL ODDS
+
+                                   Degrees of
+                      Chi-Square     Freedom   P-Value
+
+  IMAGES
+    Overall test          12.655        13      0.475
+    AGE                    0.015         1      0.903
+    EDUC                   0.577         1      0.447
+    EXPER                  0.444         1      0.505
+    ISE                    0.334         1      0.563
+    DSE                    0.262         1      0.609
+    URBAN                  1.017         1      0.313
+    RURAL                  0.227         1      0.634
+    STATEPK                0.091         1      0.763
+    FULLDAY                0.207         1      0.649
+    DAYS                   2.577         1      0.108
+    PDREC                  2.040         1      0.153
+    PDFREQ                 0.077         1      0.781
+    PDUTIL                 0.882         1      0.348
+
+  MUSIC
+    Overall test          10.119        13      0.684
+    AGE                    2.618         1      0.106
+    EDUC                   2.785         1      0.095
+    EXPER                  0.915         1      0.339
+    ISE                    0.003         1      0.954
+    DSE                    0.243         1      0.622
+    URBAN                  0.493         1      0.482
+    RURAL                  0.244         1      0.621
+    STATEPK                0.575         1      0.448
+    FULLDAY                0.156         1      0.693
+    DAYS                   0.186         1      0.667
+    PDREC                  0.398         1      0.528
+    PDFREQ                 0.000         1      0.988
+    PDUTIL                 0.617         1      0.432
+
+  VIDEO
+    Overall test          12.546        13      0.483
+    AGE                    1.264         1      0.261
+    EDUC                   0.676         1      0.411
+    EXPER                  0.922         1      0.337
+    ISE                    0.848         1      0.357
+    DSE                    0.472         1      0.492
+    URBAN                  0.006         1      0.940
+    RURAL                  0.822         1      0.365
+    STATEPK                1.471         1      0.225
+    FULLDAY                0.318         1      0.573
+    DAYS                   0.019         1      0.891
+    PDREC                  0.020         1      0.886
+    PDFREQ                 3.504         1      0.061
+    PDUTIL                 0.036         1      0.850
+
+  BOOK
+    Overall test          24.876        13      0.024
+    AGE                    0.523         1      0.470
+    EDUC                   0.134         1      0.714
+    EXPER                  0.047         1      0.828
+    ISE                    0.107         1      0.743
+    DSE                    1.288         1      0.256
+    URBAN                  1.188         1      0.276
+    RURAL                  1.762         1      0.184
+    STATEPK                0.299         1      0.584
+    FULLDAY                0.002         1      0.969
+    DAYS                   1.510         1      0.219
+    PDREC                  0.020         1      0.887
+    PDFREQ                 4.118         1      0.042
+    PDUTIL                 0.385         1      0.535
+
+  GAMES
+    Overall test          11.929        13      0.533
+    AGE                    2.792         1      0.095
+    EDUC                   0.043         1      0.836
+    EXPER                  0.056         1      0.814
+    ISE                    1.170         1      0.279
+    DSE                    0.222         1      0.637
+    URBAN                  0.470         1      0.493
+    RURAL                  0.179         1      0.672
+    STATEPK                0.132         1      0.717
+    FULLDAY                1.356         1      0.244
+    DAYS                   0.078         1      0.780
+    PDREC                  0.355         1      0.551
+    PDFREQ                 0.751         1      0.386
+    PDUTIL                 1.702         1      0.192
+
+  CAMERA
+    Overall test          16.764        13      0.210
+    AGE                    0.055         1      0.815
+    EDUC                   0.443         1      0.506
+    EXPER                  4.627         1      0.031
+    ISE                    0.179         1      0.672
+    DSE                    0.018         1      0.894
+    URBAN                  2.173         1      0.140
+    RURAL                  0.779         1      0.378
+    STATEPK                0.098         1      0.754
+    FULLDAY                0.306         1      0.580
+    DAYS                   0.827         1      0.363
+    PDREC                  0.022         1      0.882
+    PDFREQ                 3.525         1      0.060
+    PDUTIL                 1.486         1      0.223
+
+  CREATE
+    Overall test          11.700        13      0.552
+    AGE                    1.471         1      0.225
+    EDUC                   0.283         1      0.595
+    EXPER                  1.134         1      0.287
+    ISE                    0.582         1      0.446
+    DSE                    0.087         1      0.767
+    URBAN                  0.579         1      0.447
+    RURAL                  0.016         1      0.901
+    STATEPK                1.215         1      0.270
+    FULLDAY                0.201         1      0.654
+    DAYS                   0.808         1      0.369
+    PDREC                  0.044         1      0.833
+    PDFREQ                 0.014         1      0.906
+    PDUTIL                 1.771         1      0.183
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.240E-02
+       (ratio of smallest to largest eigenvalue)
+
+
+CONFIDENCE INTERVALS OF MODEL RESULTS
+
+                  Lower .5%  Lower 2.5%    Lower 5%    Estimate    Upper 5%  Upper 2.5%   Upper .5%
+
+Latent Class 1
+
+ F        BY
+    IMAGES           0.781       1.010       1.126       1.737       2.347       2.464       2.692
+    MUSIC            0.601       0.905       1.060       1.871       2.683       2.838       3.142
+    VIDEO            0.403       0.588       0.682       1.175       1.669       1.763       1.948
+    BOOK             0.396       0.624       0.741       1.350       1.960       2.077       2.305
+    GAMES            0.106       0.171       0.205       0.379       0.553       0.586       0.651
+    CAMERA           0.017       0.088       0.124       0.312       0.500       0.536       0.607
+    CREATE           0.065       0.190       0.253       0.585       0.918       0.981       1.106
+
+ F        ON
+    AGE             -0.678      -0.599      -0.558      -0.346      -0.134      -0.094      -0.015
+    EDUC            -0.245      -0.179      -0.145       0.033       0.210       0.244       0.310
+    EXPER           -0.146      -0.073      -0.035       0.162       0.359       0.397       0.471
+    ISE             -0.142      -0.039       0.013       0.289       0.564       0.617       0.720
+    DSE             -0.451      -0.364      -0.319      -0.086       0.147       0.192       0.279
+    URBAN           -1.224      -1.074      -0.997      -0.594      -0.192      -0.114       0.036
+    RURAL           -1.121      -0.950      -0.863      -0.406       0.051       0.138       0.309
+    STATEPK         -0.838      -0.620      -0.508       0.075       0.659       0.770       0.989
+    FULLDAY         -0.752      -0.600      -0.522      -0.116       0.290       0.368       0.520
+    DAYS            -0.311      -0.234      -0.195       0.011       0.216       0.256       0.333
+    PDREC           -0.445      -0.276      -0.190       0.262       0.714       0.800       0.969
+    PDFREQ          -0.136      -0.047      -0.002       0.236       0.474       0.520       0.609
+    PDUTIL           0.109       0.202       0.250       0.500       0.750       0.798       0.892
+
+ Intercepts
+    F                1.004       1.865       2.305       4.604       6.902       7.342       8.203
+
+ Thresholds
+    IMAGES$1        -5.374      -4.942      -4.721      -3.567      -2.413      -2.192      -1.760
+    IMAGES$2        -1.277      -1.008      -0.871      -0.154       0.564       0.701       0.970
+    MUSIC$1         -5.046      -4.613      -4.391      -3.235      -2.078      -1.857      -1.424
+    MUSIC$2         -2.480      -2.170      -2.011      -1.182      -0.354      -0.195       0.115
+    VIDEO$1         -2.598      -2.374      -2.260      -1.662      -1.064      -0.950      -0.726
+    VIDEO$2         -0.071       0.109       0.202       0.683       1.164       1.256       1.437
+    BOOK$1          -2.728      -2.510      -2.399      -1.816      -1.234      -1.123      -0.905
+    BOOK$2           0.715       0.951       1.072       1.703       2.334       2.455       2.691
+    GAMES$1         -1.098      -0.991      -0.936      -0.650      -0.364      -0.309      -0.202
+    GAMES$2          0.450       0.559       0.614       0.903       1.192       1.247       1.356
+    CAMERA$1        -1.246      -1.144      -1.092      -0.820      -0.547      -0.495      -0.393
+    CAMERA$2        -0.227      -0.129      -0.078       0.185       0.448       0.498       0.597
+    CREATE$1        -0.144      -0.022       0.041       0.367       0.693       0.755       0.878
+    CREATE$2         1.702       1.883       1.976       2.460       2.944       3.037       3.218
+
+ Residual Variances
+    F                1.000       1.000       1.000       1.000       1.000       1.000       1.000
+
+Latent Class 2
+
+ F        BY
+    IMAGES           0.781       1.010       1.126       1.737       2.347       2.464       2.692
+    MUSIC            0.601       0.905       1.060       1.871       2.683       2.838       3.142
+    VIDEO            0.403       0.588       0.682       1.175       1.669       1.763       1.948
+    BOOK             0.396       0.624       0.741       1.350       1.960       2.077       2.305
+    GAMES            0.106       0.171       0.205       0.379       0.553       0.586       0.651
+    CAMERA           0.017       0.088       0.124       0.312       0.500       0.536       0.607
+    CREATE           0.065       0.190       0.253       0.585       0.918       0.981       1.106
+
+ F        ON
+    AGE             -0.678      -0.599      -0.558      -0.346      -0.134      -0.094      -0.015
+    EDUC            -0.245      -0.179      -0.145       0.033       0.210       0.244       0.310
+    EXPER           -0.146      -0.073      -0.035       0.162       0.359       0.397       0.471
+    ISE             -0.142      -0.039       0.013       0.289       0.564       0.617       0.720
+    DSE             -0.451      -0.364      -0.319      -0.086       0.147       0.192       0.279
+    URBAN           -1.224      -1.074      -0.997      -0.594      -0.192      -0.114       0.036
+    RURAL           -1.121      -0.950      -0.863      -0.406       0.051       0.138       0.309
+    STATEPK         -0.838      -0.620      -0.508       0.075       0.659       0.770       0.989
+    FULLDAY         -0.752      -0.600      -0.522      -0.116       0.290       0.368       0.520
+    DAYS            -0.311      -0.234      -0.195       0.011       0.216       0.256       0.333
+    PDREC           -0.445      -0.276      -0.190       0.262       0.714       0.800       0.969
+    PDFREQ          -0.136      -0.047      -0.002       0.236       0.474       0.520       0.609
+    PDUTIL           0.109       0.202       0.250       0.500       0.750       0.798       0.892
+
+ Intercepts
+    F                0.000       0.000       0.000       0.000       0.000       0.000       0.000
+
+ Thresholds
+    IMAGES$1        -5.374      -4.942      -4.721      -3.567      -2.413      -2.192      -1.760
+    IMAGES$2        -1.277      -1.008      -0.871      -0.154       0.564       0.701       0.970
+    MUSIC$1         -5.046      -4.613      -4.391      -3.235      -2.078      -1.857      -1.424
+    MUSIC$2         -2.480      -2.170      -2.011      -1.182      -0.354      -0.195       0.115
+    VIDEO$1         -2.598      -2.374      -2.260      -1.662      -1.064      -0.950      -0.726
+    VIDEO$2         -0.071       0.109       0.202       0.683       1.164       1.256       1.437
+    BOOK$1          -2.728      -2.510      -2.399      -1.816      -1.234      -1.123      -0.905
+    BOOK$2           0.715       0.951       1.072       1.703       2.334       2.455       2.691
+    GAMES$1         -1.098      -0.991      -0.936      -0.650      -0.364      -0.309      -0.202
+    GAMES$2          0.450       0.559       0.614       0.903       1.192       1.247       1.356
+    CAMERA$1        -1.246      -1.144      -1.092      -0.820      -0.547      -0.495      -0.393
+    CAMERA$2        -0.227      -0.129      -0.078       0.185       0.448       0.498       0.597
+    CREATE$1        -0.144      -0.022       0.041       0.367       0.693       0.755       0.878
+    CREATE$2         1.702       1.883       1.976       2.460       2.944       3.037       3.218
+
+ Residual Variances
+    F                1.000       1.000       1.000       1.000       1.000       1.000       1.000
+
+Categorical Latent Variables
+
+ Means
+    C#1             -2.844      -2.599      -2.473      -1.816      -1.160      -1.034      -0.788
+
+
+TECHNICAL 1 OUTPUT
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 1
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           LAMBDA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ IMAGES             1             0             0             0             0
+ MUSIC              2             0             0             0             0
+ VIDEO              3             0             0             0             0
+ BOOK               4             0             0             0             0
+ GAMES              5             0             0             0             0
+ CAMERA             6             0             0             0             0
+ CREATE             7             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           LAMBDA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ IMAGES             0             0             0             0             0
+ MUSIC              0             0             0             0             0
+ VIDEO              0             0             0             0             0
+ BOOK               0             0             0             0             0
+ GAMES              0             0             0             0             0
+ CAMERA             0             0             0             0             0
+ CREATE             0             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           LAMBDA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ IMAGES             0             0             0             0
+ MUSIC              0             0             0             0
+ VIDEO              0             0             0             0
+ BOOK               0             0             0             0
+ GAMES              0             0             0             0
+ CAMERA             0             0             0             0
+ CREATE             0             0             0             0
+ AGE                0             0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0
+ DSE                0             0             0             0
+ URBAN              0             0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0
+ DAYS               0             0             0             0
+ PDREC              0             0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES             0
+ MUSIC              0             0
+ VIDEO              0             0             0
+ BOOK               0             0             0             0
+ GAMES              0             0             0             0             0
+ CAMERA             0             0             0             0             0
+ CREATE             0             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+ CAMERA             0
+ CREATE             0             0
+ AGE                0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+ ISE                0
+ DSE                0             0
+ URBAN              0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+ FULLDAY            0
+ DAYS               0             0
+ PDREC              0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           ALPHA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+                    8             0             0             0             0
+
+
+           ALPHA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+                    0             0             0             0
+
+
+           BETA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F                  0             9            10            11            12
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           BETA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ F                 13            14            15            16            17
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           BETA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ F                 18            19            20            21
+ AGE                0             0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0
+ DSE                0             0             0             0
+ URBAN              0             0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0
+ DAYS               0             0             0             0
+ PDREC              0             0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0
+
+
+           PSI
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F                  0
+ AGE                0             0
+ EDUC               0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           PSI
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ DSE                0
+ URBAN              0             0
+ RURAL              0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           PSI
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ DAYS               0
+ PDREC              0             0
+ PDFREQ             0             0             0
+ PDUTIL             0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS 2
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           NU
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           LAMBDA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ IMAGES             1             0             0             0             0
+ MUSIC              2             0             0             0             0
+ VIDEO              3             0             0             0             0
+ BOOK               4             0             0             0             0
+ GAMES              5             0             0             0             0
+ CAMERA             6             0             0             0             0
+ CREATE             7             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           LAMBDA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ IMAGES             0             0             0             0             0
+ MUSIC              0             0             0             0             0
+ VIDEO              0             0             0             0             0
+ BOOK               0             0             0             0             0
+ GAMES              0             0             0             0             0
+ CAMERA             0             0             0             0             0
+ CREATE             0             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           LAMBDA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ IMAGES             0             0             0             0
+ MUSIC              0             0             0             0
+ VIDEO              0             0             0             0
+ BOOK               0             0             0             0
+ GAMES              0             0             0             0
+ CAMERA             0             0             0             0
+ CREATE             0             0             0             0
+ AGE                0             0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0
+ DSE                0             0             0             0
+ URBAN              0             0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0
+ DAYS               0             0             0             0
+ PDREC              0             0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES             0
+ MUSIC              0             0
+ VIDEO              0             0             0
+ BOOK               0             0             0             0
+ GAMES              0             0             0             0             0
+ CAMERA             0             0             0             0             0
+ CREATE             0             0             0             0             0
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+ CAMERA             0
+ CREATE             0             0
+ AGE                0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+ ISE                0
+ DSE                0             0
+ URBAN              0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           THETA
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+ FULLDAY            0
+ DAYS               0             0
+ PDREC              0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           ALPHA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+                    0             0             0             0             0
+
+
+           ALPHA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+                    0             0             0             0
+
+
+           BETA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F                  0             9            10            11            12
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           BETA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ F                 13            14            15            16            17
+ AGE                0             0             0             0             0
+ EDUC               0             0             0             0             0
+ EXPER              0             0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           BETA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ F                 18            19            20            21
+ AGE                0             0             0             0
+ EDUC               0             0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0
+ DSE                0             0             0             0
+ URBAN              0             0             0             0
+ RURAL              0             0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0
+ DAYS               0             0             0             0
+ PDREC              0             0             0             0
+ PDFREQ             0             0             0             0
+ PDUTIL             0             0             0             0
+
+
+           PSI
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F                  0
+ AGE                0             0
+ EDUC               0             0             0
+ EXPER              0             0             0             0
+ ISE                0             0             0             0             0
+ DSE                0             0             0             0             0
+ URBAN              0             0             0             0             0
+ RURAL              0             0             0             0             0
+ STATEPK            0             0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           PSI
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ DSE                0
+ URBAN              0             0
+ RURAL              0             0             0
+ STATEPK            0             0             0             0
+ FULLDAY            0             0             0             0             0
+ DAYS               0             0             0             0             0
+ PDREC              0             0             0             0             0
+ PDFREQ             0             0             0             0             0
+ PDUTIL             0             0             0             0             0
+
+
+           PSI
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ DAYS               0
+ PDREC              0             0
+ PDFREQ             0             0             0
+ PDUTIL             0             0             0             0
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                   22            23            24            25            26
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   27            28            29            30            31
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   32            33            34            35
+
+
+           TAU(U) FOR LATENT CLASS 2
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+                   22            23            24            25            26
+
+
+           TAU(U) FOR LATENT CLASS 2
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                   27            28            29            30            31
+
+
+           TAU(U) FOR LATENT CLASS 2
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+                   32            33            34            35
+
+
+     PARAMETER SPECIFICATION FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                   36             0
+
+
+           GAMMA(C)
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ C#1                0             0             0             0             0
+ C#2                0             0             0             0             0
+
+
+           GAMMA(C)
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ C#1                0             0             0             0             0
+ C#2                0             0             0             0             0
+
+
+           GAMMA(C)
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ C#1                0             0             0             0
+ C#2                0             0             0             0
+
+
+     STARTING VALUES FOR LATENT CLASS 1
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ IMAGES         1.000         0.000         0.000         0.000         0.000
+ MUSIC          1.000         0.000         0.000         0.000         0.000
+ VIDEO          1.000         0.000         0.000         0.000         0.000
+ BOOK           1.000         0.000         0.000         0.000         0.000
+ GAMES          1.000         0.000         0.000         0.000         0.000
+ CAMERA         1.000         0.000         0.000         0.000         0.000
+ CREATE         1.000         0.000         0.000         0.000         0.000
+ AGE            0.000         1.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         1.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         1.000         0.000
+ ISE            0.000         0.000         0.000         0.000         1.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ IMAGES         0.000         0.000         0.000         0.000         0.000
+ MUSIC          0.000         0.000         0.000         0.000         0.000
+ VIDEO          0.000         0.000         0.000         0.000         0.000
+ BOOK           0.000         0.000         0.000         0.000         0.000
+ GAMES          0.000         0.000         0.000         0.000         0.000
+ CAMERA         0.000         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            1.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         1.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         1.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         1.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         1.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ IMAGES         0.000         0.000         0.000         0.000
+ MUSIC          0.000         0.000         0.000         0.000
+ VIDEO          0.000         0.000         0.000         0.000
+ BOOK           0.000         0.000         0.000         0.000
+ GAMES          0.000         0.000         0.000         0.000
+ CAMERA         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000
+ DAYS           1.000         0.000         0.000         0.000
+ PDREC          0.000         1.000         0.000         0.000
+ PDFREQ         0.000         0.000         1.000         0.000
+ PDUTIL         0.000         0.000         0.000         1.000
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES         1.000
+ MUSIC          0.000         1.000
+ VIDEO          0.000         0.000         1.000
+ BOOK           0.000         0.000         0.000         1.000
+ GAMES          0.000         0.000         0.000         0.000         1.000
+ CAMERA         0.000         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+ CAMERA         1.000
+ CREATE         0.000         1.000
+ AGE            0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+ ISE            0.000
+ DSE            0.000         0.000
+ URBAN          0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+ FULLDAY        0.000
+ DAYS           0.000         0.000
+ PDREC          0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           BETA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000
+
+
+           PSI
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F              1.000
+ AGE            0.000         0.498
+ EDUC           0.000         0.000         0.498
+ EXPER          0.000         0.000         0.000         0.498
+ ISE            0.000         0.000         0.000         0.000         0.498
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ DSE            0.498
+ URBAN          0.000         0.113
+ RURAL          0.000         0.000         0.103
+ STATEPK        0.000         0.000         0.000         0.110
+ FULLDAY        0.000         0.000         0.000         0.000         0.117
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ DAYS           0.498
+ PDREC          0.000         0.125
+ PDFREQ         0.000         0.000         0.498
+ PDUTIL         0.000         0.000         0.000         0.498
+
+
+     STARTING VALUES FOR LATENT CLASS 2
+
+
+           NU
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           NU
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ IMAGES         1.000         0.000         0.000         0.000         0.000
+ MUSIC          1.000         0.000         0.000         0.000         0.000
+ VIDEO          1.000         0.000         0.000         0.000         0.000
+ BOOK           1.000         0.000         0.000         0.000         0.000
+ GAMES          1.000         0.000         0.000         0.000         0.000
+ CAMERA         1.000         0.000         0.000         0.000         0.000
+ CREATE         1.000         0.000         0.000         0.000         0.000
+ AGE            0.000         1.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         1.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         1.000         0.000
+ ISE            0.000         0.000         0.000         0.000         1.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ IMAGES         0.000         0.000         0.000         0.000         0.000
+ MUSIC          0.000         0.000         0.000         0.000         0.000
+ VIDEO          0.000         0.000         0.000         0.000         0.000
+ BOOK           0.000         0.000         0.000         0.000         0.000
+ GAMES          0.000         0.000         0.000         0.000         0.000
+ CAMERA         0.000         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            1.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         1.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         1.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         1.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         1.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           LAMBDA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ IMAGES         0.000         0.000         0.000         0.000
+ MUSIC          0.000         0.000         0.000         0.000
+ VIDEO          0.000         0.000         0.000         0.000
+ BOOK           0.000         0.000         0.000         0.000
+ GAMES          0.000         0.000         0.000         0.000
+ CAMERA         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000
+ DAYS           1.000         0.000         0.000         0.000
+ PDREC          0.000         1.000         0.000         0.000
+ PDFREQ         0.000         0.000         1.000         0.000
+ PDUTIL         0.000         0.000         0.000         1.000
+
+
+           THETA
+              IMAGES        MUSIC         VIDEO         BOOK          GAMES
+              ________      ________      ________      ________      ________
+ IMAGES         1.000
+ MUSIC          0.000         1.000
+ VIDEO          0.000         0.000         1.000
+ BOOK           0.000         0.000         0.000         1.000
+ GAMES          0.000         0.000         0.000         0.000         1.000
+ CAMERA         0.000         0.000         0.000         0.000         0.000
+ CREATE         0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              CAMERA        CREATE        AGE           EDUC          EXPER
+              ________      ________      ________      ________      ________
+ CAMERA         1.000
+ CREATE         0.000         1.000
+ AGE            0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              ISE           DSE           URBAN         RURAL         STATEPK
+              ________      ________      ________      ________      ________
+ ISE            0.000
+ DSE            0.000         0.000
+ URBAN          0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           THETA
+              FULLDAY       DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________      ________
+ FULLDAY        0.000
+ DAYS           0.000         0.000
+ PDREC          0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+                0.000         0.000         0.000         0.000         0.000
+
+
+           ALPHA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+                0.000         0.000         0.000         0.000
+
+
+           BETA
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           BETA
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ F              0.000         0.000         0.000         0.000
+ AGE            0.000         0.000         0.000         0.000
+ EDUC           0.000         0.000         0.000         0.000
+ EXPER          0.000         0.000         0.000         0.000
+ ISE            0.000         0.000         0.000         0.000
+ DSE            0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000
+
+
+           PSI
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ F              1.000
+ AGE            0.000         0.498
+ EDUC           0.000         0.000         0.498
+ EXPER          0.000         0.000         0.000         0.498
+ ISE            0.000         0.000         0.000         0.000         0.498
+ DSE            0.000         0.000         0.000         0.000         0.000
+ URBAN          0.000         0.000         0.000         0.000         0.000
+ RURAL          0.000         0.000         0.000         0.000         0.000
+ STATEPK        0.000         0.000         0.000         0.000         0.000
+ FULLDAY        0.000         0.000         0.000         0.000         0.000
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ DSE            0.498
+ URBAN          0.000         0.113
+ RURAL          0.000         0.000         0.103
+ STATEPK        0.000         0.000         0.000         0.110
+ FULLDAY        0.000         0.000         0.000         0.000         0.117
+ DAYS           0.000         0.000         0.000         0.000         0.000
+ PDREC          0.000         0.000         0.000         0.000         0.000
+ PDFREQ         0.000         0.000         0.000         0.000         0.000
+ PDUTIL         0.000         0.000         0.000         0.000         0.000
+
+
+           PSI
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ DAYS           0.498
+ PDREC          0.000         0.125
+ PDFREQ         0.000         0.000         0.498
+ PDUTIL         0.000         0.000         0.000         0.498
+
+
+     STARTING VALUES FOR LATENT CLASS INDICATOR MODEL PART
+
+
+           TAU(U) FOR LATENT CLASS 1
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -2.110        -0.108        -1.818        -0.633        -1.185
+
+
+           TAU(U) FOR LATENT CLASS 1
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                0.364        -1.210         0.839        -0.693         0.693
+
+
+           TAU(U) FOR LATENT CLASS 1
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -0.860         0.072         0.163         1.745
+
+
+           TAU(U) FOR LATENT CLASS 2
+              IMAGES$1      IMAGES$2      MUSIC$1       MUSIC$2       VIDEO$1
+              ________      ________      ________      ________      ________
+               -2.110        -0.108        -1.818        -0.633        -1.185
+
+
+           TAU(U) FOR LATENT CLASS 2
+              VIDEO$2       BOOK$1        BOOK$2        GAMES$1       GAMES$2
+              ________      ________      ________      ________      ________
+                0.364        -1.210         0.839        -0.693         0.693
+
+
+           TAU(U) FOR LATENT CLASS 2
+              CAMERA$1      CAMERA$2      CREATE$1      CREATE$2
+              ________      ________      ________      ________
+               -0.860         0.072         0.163         1.745
+
+
+     STARTING VALUES FOR LATENT CLASS REGRESSION MODEL PART
+
+
+           ALPHA(C)
+              C#1           C#2
+              ________      ________
+                0.000         0.000
+
+
+           GAMMA(C)
+              F             AGE           EDUC          EXPER         ISE
+              ________      ________      ________      ________      ________
+ C#1            0.000         0.000         0.000         0.000         0.000
+ C#2            0.000         0.000         0.000         0.000         0.000
+
+
+           GAMMA(C)
+              DSE           URBAN         RURAL         STATEPK       FULLDAY
+              ________      ________      ________      ________      ________
+ C#1            0.000         0.000         0.000         0.000         0.000
+ C#2            0.000         0.000         0.000         0.000         0.000
+
+
+           GAMMA(C)
+              DAYS          PDREC         PDFREQ        PDUTIL
+              ________      ________      ________      ________
+ C#1            0.000         0.000         0.000         0.000
+ C#2            0.000         0.000         0.000         0.000
+
+
+     Beginning Time:  14:04:57
+        Ending Time:  14:18:37
+       Elapsed Time:  00:13:40
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen
