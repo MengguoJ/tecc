@@ -1,4 +1,4 @@
-# Mplus syntax: preschool classroom media repertoires
+# Mplus syntax: tecc
 
 All models were estimated in Mplus 8.3. All files are in the `data analysis mplus` folder, and the paths below are relative to it. Open each `.inp` file in Mplus and click Run.
 
